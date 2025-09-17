@@ -1,0 +1,41 @@
+conditioning:
+  method: ps
+  params:
+    scale: 1.0
+
+data:
+  name: ffhq
+  root: ./data/samples/
+
+measurement:
+  operator:
+    name: phase_retrieval_soc
+    oversample: 2.0
+
+  scale:
+    nonlinear: 0.7
+    nonlinear_finitegamma: 0.7
+
+  mcmc:
+    param:
+      'tau': 0.01
+      'lr_min_ratio': 0.01
+      'prior_solver': 'gaussian'
+      'mc_algo': 'langevin'
+    nonlinear: 
+      'num_steps': 150
+      'lr': 0.00005
+    nonlinear_finitegamma:
+      1000:
+        'num_steps': 150
+        'lr': 0.00005
+      100000:
+        'num_steps': 100
+        'lr': 0.00005
+      10000000:
+        'num_steps': 100
+        'lr': 0.00005
+
+  noise: 
+    name: gaussian
+    sigma: 0.05
