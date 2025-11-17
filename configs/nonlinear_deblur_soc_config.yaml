@@ -1,0 +1,44 @@
+conditioning:
+  method: ps
+  params:
+    scale: 0.3
+
+data:
+  name: ffhq
+  root: 
+    ffhq: ./data/ffhq/val_100/
+    imagenet: ./data/imagenet/imagenet_val100/
+
+measurement:
+  operator:
+    name: nonlinear_blur_soc
+    opt_yml_path: ./bkse/options/generate_blur/default.yml
+
+
+  mcmc:
+    param:
+      'tau': 0.01
+      'lr_min_ratio': 0.01
+      'prior_solver': 'gaussian'
+      'mc_algo': 'langevin'
+    nonlinear: 
+      'num_steps': 500    # 800   500
+      'lr': 0.000003      # 0.000002   0.000003
+    nonlinear_finitegamma:
+      1000:
+        'num_steps': 500
+        'lr': 0.00005    # 0.00003
+      100000:
+        'num_steps': 500
+        'lr': 0.0000005
+      10000000:
+        'num_steps': 500
+        'lr': 0.000000005
+      1000000000:
+        'num_steps': 500
+        'lr': 0.00000000005
+    
+
+  noise: 
+    name: gaussian
+    sigma: 0.05
