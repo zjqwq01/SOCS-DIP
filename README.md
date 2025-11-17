@@ -1,15 +1,15 @@
 # Stochastic Optimal Control Sampling for Diffusion Inverse Problems
 
-<center>
+<p align="center">
 <img src="./figures/SOCS_Overview.png" alt="Overview-img" width="600"/>
-</center>
+</p>
 
 ## Abstract
 Benefiting from the strong ability to capture data distributions, diffusion models have become powerful tools for solving image inverse problems. The key is to controllably steer the sampling trajectory toward the measurements while respecting the diffusion prior. In this work, we introduce Stochastic Optimal Control Sampling (SOCS), which models the denoising process as a dynamical system and injects control signals via SOC. Previous SOC-based approach addresses inverse problems by optimizing over the entire trajectory, which is computationally expensive. In contrast, we derive a closed-form control update and apply it at each sampling step, pulling the measurement-consistent clean prediction back onto the denoising flow. In SOCS, we can readily modulate the control strength to align with the diffusion model’s native capabilities and thereby enhance perceptual quality. Our method is compatible with a variety of linear stochastic differential equation backbones. Extensive experiments across a broad spectrum of image inverse tasks demonstrate that SOCS achieves accurate measurement-aligned reconstructions with improved visual fidelity and stronger quantitative performance.
 
-<center>
+<p align="center">
 <img src="./figures/first_page.png" alt="Overview-img" width="1000"/>
-</center>
+</p>
 
 ## Getting started 
 
